@@ -1,0 +1,21 @@
+import { useState } from 'react';
+import { createContext } from 'react';
+
+// Create context to share CSV data across components
+export const CSVDataContext = createContext(null);
+
+export const CSVDataProvider = ({ children }) => {
+  // State to hold the uploaded CSV data
+  const [CSVData, setCSVData] = useState(null);
+  // State to track which row is currently being previewed
+  const [previewRowIndex, setPreviewRowIndex] = useState(null);
+
+  return (
+    <CSVDataContext
+      value={{ CSVData, setCSVData, previewRowIndex, setPreviewRowIndex }}
+    >
+      {/* Only render children once context is provided */}
+      {children}
+    </CSVDataContext>
+  );
+};
