@@ -1,15 +1,8 @@
-import { applyPageSettings } from '@/utils/canvasSettings';
-const DEFAULT_PREVIEW_IMAGE =
-  'data:image/svg+xml;base64,' +
-  btoa(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">
-      <rect width="400" height="300" fill="#e5e7eb"/>
-      <text x="50%" y="50%" font-family="sans-serif" font-size="16"
-            fill="#9ca3af" text-anchor="middle" dominant-baseline="middle">
-        No preview available
-      </text>
-    </svg>`
-  );
+import {
+  applyPageSettings,
+  fitCanvasToContainer,
+} from '@/utils/canvasSettings';
+import { DEFAULT_PREVIEW_IMAGE } from '@/constants/imagePlaceholders';
 
 // Checks whether an image URL actually loads. Resolves true/false —
 // never rejects, so it's safe to use in Promise.all.
@@ -74,5 +67,6 @@ export const loadTemplateIntoCanvas = async (
     // size/orientation match the current state (e.g. default A4 landscape),
     // that effect won't re-fire and the canvas would be left at full,
     // unscaled size, overflowing mobile/tablet viewports.
+    fitCanvasToContainer(canvasEditor);
   }
 };
