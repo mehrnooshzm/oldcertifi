@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken } from '../firebase/firebaseHelper';
 
-const baseUrl = 'https://oldcertifi.onrender.com/api/uploads';
+const baseUrl = 'https://oldcertifi.onrender.com/api/designs/api/uploads';
 
 // Fetch a single upload by its ID
 const getById = async (uploadId) => {

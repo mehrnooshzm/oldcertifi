@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken } from '../firebase/firebaseHelper';
 
-const baseUrl = 'https://oldcertifi.onrender.com/api/designs';
+const baseUrl = '/api/designs';
 
 // Fetch all designs from the server
 const getAll = async () => {
